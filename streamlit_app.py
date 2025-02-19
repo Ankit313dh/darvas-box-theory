@@ -11,7 +11,7 @@ def get_last_week_data(ticker):
     start_date = last_friday - timedelta(days=7)
     
     stock = yf.Ticker(ticker)
-    df = stock.history(start=start_date, end=last_thursday + timedelta(days=1))
+    df = stock.history(start=start_date, end=last_thursday)
     return df, stock
 
 def get_52_week_data(ticker):
