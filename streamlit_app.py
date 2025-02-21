@@ -79,7 +79,6 @@ def main():
             st.subheader("Last Week's Trading Data")
             
             display_df = weekly_data[['Open', 'High', 'Low', 'Close']].round(2)
-            
             week_high = display_df['High'].max()
             week_low = display_df['Low'].min()
             
@@ -90,7 +89,8 @@ def main():
                     return 'background-color: lightcoral'
                 return ''
             
-            st.dataframe(display_df.style.applymap(highlight_high_low))
+            st.dataframe(display_df.style.applymap(highlight_high_low).format("{:.2f}"))
+            
             
             # Calculate and display GTT Buy Price and Target
             gtt_buy_price = round(week_high * 1.005, 2)
